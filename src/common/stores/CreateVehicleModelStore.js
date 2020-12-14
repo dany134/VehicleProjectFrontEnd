@@ -28,15 +28,15 @@ class CreateVehicleModelStore {
 
   createModel = async (history) => {
     if (!this.model.name || !this.model.abrv || !this.model.VehicleMakeID) {
-      runInAction(() => {
-        this.status = "Fill out the forms";
-      });
+      this.status = "Fill out the forms";
     } else {
       try {
         this.loading = true;
         await this.vehicleModelService.create(this.model);
-        this.loading = false;
-        history.push("/models");
+        runInAction(() => {
+          this.loading = false;
+          history.push("/models");
+        });
       } catch (error) {
         runInAction(() => {
           this.status = "error";

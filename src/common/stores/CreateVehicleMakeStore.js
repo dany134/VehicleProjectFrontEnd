@@ -26,9 +26,7 @@ class CreateVehicleMakeStore {
 
   createMake = async (history) => {
     if (!this.make.name || !this.make.abrv) {
-      runInAction(() => {
-        this.status = "Fill out the forms";
-      });
+      this.status = "Fill out the forms";
     } else {
       try {
         this.loading = true;
