@@ -1,42 +1,41 @@
-import axios from 'axios';
-const ApiUrl = 'https://localhost:44325/api/VehicleMakes';
+import axios from "axios";
 
 class VehicleMakeService {
+  url;
+  constructor(url) {
+    this.url = url;
+  }
 
-    getList = () => {
-        return axios.get(ApiUrl + '/' + 'dropList');
-    }
+  getList = () => {
+    return axios.get(this.url + "/" + "dropList");
+  };
 
-
-    get = (urlParams) => {
-        return axios.get(ApiUrl, {
-            params: {
-                ...urlParams,
-            },
-        });
-    };
-    getById = (Id) => {
-        return axios.get(ApiUrl + '/' + Id);
-    };
-    create = (make) =>  {
-        return axios.post(ApiUrl, {
-            Name: make.name,
-            Abrv: make.abrv,
-            
-        });
-
-    };
-    editMake(id, make) {
-        return axios.put(ApiUrl + '/' + id, {
-            Id: id,
-            Name: make.Name,
-            Abrv: make.Abrv,
-       });
-    };
-    deleteMake = (id) =>  {
-        return axios.delete(ApiUrl + '/' + id);
-
-    }
+  get = (urlParams) => {
+    return axios.get(this.url, {
+      params: {
+        ...urlParams,
+      },
+    });
+  };
+  getById = (Id) => {
+    return axios.get(this.url + "/" + Id);
+  };
+  create = (make) => {
+    return axios.post(this.url, {
+      Name: make.name,
+      Abrv: make.abrv,
+    });
+  };
+  editMake(id, make) {
+    return axios.put(this.url + "/" + id, {
+      Id: id,
+      Name: make.Name,
+      Abrv: make.Abrv,
+    });
+  }
+  deleteMake = (id) => {
+    return axios.delete(this.url + "/" + id);
+  };
 }
 
-export default VehicleMakeService;
+export { VehicleMakeService };

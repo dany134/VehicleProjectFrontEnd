@@ -4,23 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'mobx-react';
-import VehicleMakeStore from './common/stores/VehicleMakeStore';
-import VehicleModelStore from './common/stores/VehicleModelStore';
-import CreateVehicleModelStore from './common/stores/CreateVehicleModelStore';
-import CreateVehicleMakeStore from './common/stores/CreateVehicleMakeStore';
-import EditVehicleMakeStore from './common/stores/EditVehicleMakeStore';
-import EditVehicleModelStore from './common/stores/EditVehicleModelStore';
-const stores= {
-  VehicleMakeStore,
-  VehicleModelStore,
-  CreateVehicleModelStore,
-  CreateVehicleMakeStore,
-  EditVehicleMakeStore,
-  EditVehicleModelStore
-}
+import {RootStore} from './common/stores/RootStore';
+
+const rootStore = new RootStore()
 
 ReactDOM.render(
-  <Provider {...stores}>
+  <Provider rootStore={rootStore} >
 
   <React.StrictMode>
     <App />
