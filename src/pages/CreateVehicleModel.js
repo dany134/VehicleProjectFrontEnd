@@ -5,8 +5,10 @@ import { Button, Row, Col, Form } from "react-bootstrap";
 class CreateVehicleModel extends Component {
   CreateModel = async (e) => {
     e.preventDefault();
-    await this.props.CreateVehicleModelStore.createModel(this.props.history);
-    console.log(this.props.CreateVehicleModelStore.status);
+    await this.props.rootStore.createVehicleModelStore.createModel(
+      this.props.history
+    );
+    console.log(this.props.rootStore.createVehicleModelStore.status);
   };
 
   render() {
@@ -19,9 +21,13 @@ class CreateVehicleModel extends Component {
                 <Form.Label>Name</Form.Label>
                 <Form.Control
                   type="text"
-                  value={this.props.CreateVehicleModelStore.model.name}
+                  value={
+                    this.props.rootStore.createVehicleModelStore.model.name
+                  }
                   onChange={(e) =>
-                    this.props.CreateVehicleModelStore.onChangeHandler(e)
+                    this.props.rootStore.createVehicleModelStore.onChangeHandler(
+                      e
+                    )
                   }
                   required
                   placeholder="Name of the Model"
@@ -32,9 +38,13 @@ class CreateVehicleModel extends Component {
                 <Form.Label>Abrv</Form.Label>
                 <Form.Control
                   type="text"
-                  value={this.props.CreateVehicleModelStore.model.abrv}
+                  value={
+                    this.props.rootStore.createVehicleModelStore.model.abrv
+                  }
                   onChange={(e) =>
-                    this.props.CreateVehicleModelStore.onChangeHandler(e)
+                    this.props.rootStore.createVehicleModelStore.onChangeHandler(
+                      e
+                    )
                   }
                   required
                   placeholder="Abrv of the Model"
@@ -45,9 +55,14 @@ class CreateVehicleModel extends Component {
                 <Form.Label>MakeId</Form.Label>
                 <Form.Control
                   type="text"
-                  value={this.props.CreateVehicleModelStore.model.VehicleMakeID}
+                  value={
+                    this.props.rootStore.createVehicleModelStore.model
+                      .VehicleMakeID
+                  }
                   onChange={(e) =>
-                    this.props.CreateVehicleModelStore.onChangeHandler(e)
+                    this.props.rootStore.createVehicleModelStore.onChangeHandler(
+                      e
+                    )
                   }
                   required
                   placeholder="ID of the Make"
