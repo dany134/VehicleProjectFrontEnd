@@ -16,6 +16,9 @@ class VehicleModelList extends Component {
   };
 
   render() {
+    if (this.props.rootStore.vehicleModelStore.loading) {
+      return <p>LOADING....</p>;
+    }
     return (
       <div className="container">
         <Table className="model-table" striped bordered hover size="sm">

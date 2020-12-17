@@ -13,33 +13,19 @@ const vehicleMakeService = new VehicleMakeService(vehicleMakeUrl);
 const vehicleModelService = new VehicleModelService(vehicleModelUrl);
 
 export class RootStore {
-  vehicleMakeStore;
-  createVehicleMakeStore;
-  editVehicleMakeStore;
-  vehicleModelStore;
-  createVehicleModelStore;
   constructor() {
     this.createVehicleMakeStore = new CreateVehicleMakeStore(
-      this,
       vehicleMakeService
     );
-    this.vehicleMakeStore = new VehicleMakeStore(this, vehicleMakeService);
-    this.editVehicleMakeStore = new EditVehicleMakeStore(
-      this,
-      vehicleMakeService
-    );
+    this.vehicleMakeStore = new VehicleMakeStore(vehicleMakeService);
+    this.editVehicleMakeStore = new EditVehicleMakeStore(vehicleMakeService);
     this.vehicleModelStore = new VehicleModelStore(
-      this,
       vehicleModelService,
       vehicleMakeService
     );
     this.createVehicleModelStore = new CreateVehicleModelStore(
-      this,
       vehicleModelService
     );
-    this.editVehicleModelStore = new EditVehicleModelStore(
-      this,
-      vehicleModelService
-    );
+    this.editVehicleModelStore = new EditVehicleModelStore(vehicleModelService);
   }
 }
