@@ -1,11 +1,9 @@
 import { makeObservable, runInAction, observable, action } from "mobx";
 
 class CreateVehicleMakeStore {
-  rootStore;
   vehicleMakeService;
-  constructor(rootStore, vehicleMakeService) {
+  constructor(vehicleMakeService) {
     this.vehicleMakeService = vehicleMakeService;
-    this.rootStore = rootStore;
 
     makeObservable(this, {
       make: observable,

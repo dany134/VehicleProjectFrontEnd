@@ -9,7 +9,8 @@ import CreateVehicleModel from "./pages/CreateVehicleModel";
 import EditVehicleMake from "./pages/EditVehicleMake";
 import MakesDropDown from "./components/MakesDropDown";
 import EditVehicleModel from "./pages/EditVehicleModel";
-
+import CreateVehicleMakeForm from "./pages/CreateVehicleMakeForm";
+import CreateVehicleModelForm from "./pages/CreateVehicleModelForm";
 function App() {
   return (
     <BrowserRouter>
@@ -20,8 +21,12 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/makes" exact component={VehicleMake} />
           <Route path="/models" exact component={VehicleModel} />
-          <Route path="/makes/create" exact component={CreateVehicleMake} />
-          <Route path="/models/create" exact component={CreateVehicleModel} />
+          <Route path="/makes/create" exact component={CreateVehicleMakeForm} />
+          <Route
+            path="/models/create"
+            exact
+            component={CreateVehicleModelForm}
+          />
           <Route path="/makes/edit/:id" component={EditVehicleMake} />
           <Route path="/drop" component={MakesDropDown} />
           <Route path="/models/edit/:id" component={EditVehicleModel} />
